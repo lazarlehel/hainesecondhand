@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Haine Second Hand – Modă sustenabilă din România</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1410;
+  --paper: #F9F5EF;
+  --warm: #F2EBE0;
+  --rust: #B5451B;
+  --rust-light: #EDD5C8;
+  --sage: #5C6B52;
+  --sage-light: #DDE5D8;
+  --gold: #A07B30;
+  --muted: #8A7E72;
+  --border: #DDD5C8;
+  --white: #FFFFFF;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+/* FOR SALE BANNER */
+.sale-banner {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.sale-banner a {
+  color: var(--rust-light);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--rust-light);
+  padding-bottom: 1px;
+  cursor: pointer;
+}
+.sale-tag {
+  background: var(--rust);
+  color: white;
+  padding: 3px 10px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+}
+
+/* HEADER */
+header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--rust); font-style: italic; }
+nav { display: flex; gap: 32px; }
+nav a {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+nav a:hover, nav a.active { color: var(--ink); }
+.header-actions { display: flex; align-items: center; gap: 20px; }
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  gap: 8px;
+  width: 200px;
+}
+.search-box input {
+  background: none;
+  border: none;
+  outline: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  width: 100%;
+}
+.search-box input::placeholder { color: var(--muted); }
+.cart-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+}
+.cart-count {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: var(--rust);
+  color: white;
+  font-size: 9px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.cart-count.visible { opacity: 1; }
+
+/* HERO STRIP */
+.hero-strip {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 80px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-strip::before {
+  content: 'SECONDHAND';
+  position: absolute;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 180px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.03);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.hero-strip h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 7vw, 88px);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -2px;
+}
+.hero-strip h1 em { font-style: italic; color: var(--rust-light); }
+.hero-strip p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.hero-badge {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 8px 18px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+}
+
+/* CATEGORY TABS */
+.categories {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex;
+  gap: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.cat-tab {
+  padding: 18px 24px;
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  font-family: 'Outfit', sans-serif;
+}
+.cat-tab:hover { color: var(--ink); }
+.cat-tab.active { color: var(--rust); border-bottom-color: var(--rust); font-weight: 500; }
+
+/* MAIN LAYOUT */
+.main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 40px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 40px;
+}
+
+/* SIDEBAR FILTERS */
+.sidebar { }
+.filter-section { margin-bottom: 32px; }
+.filter-title {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.filter-options { display: flex; flex-direction: column; gap: 8px; }
+.filter-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--ink);
+  padding: 4px 0;
+}
+.filter-opt input { cursor: pointer; accent-color: var(--rust); }
+.filter-opt span { flex: 1; }
+.filter-opt .count { font-size: 12px; color: var(--muted); }
+
+.price-range { padding: 4px 0; }
+.price-inputs { display: flex; gap: 8px; align-items: center; margin-top: 10px; }
+.price-input {
+  width: 80px;
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+}
+.price-sep { font-size: 12px; color: var(--muted); }
+
+.size-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.size-btn {
+  border: 1px solid var(--border);
+  background: none;
+  padding: 8px 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--ink);
+  transition: all 0.15s;
+  text-align: center;
+}
+.size-btn:hover { border-color: var(--rust); color: var(--rust); }
+.size-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+
+.color-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.color-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.15s;
+  position: relative;
+}
+.color-dot:hover, .color-dot.active { transform: scale(1.15); border-color: var(--ink); }
+
+/* PRODUCTS GRID */
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.products-count { font-size: 14px; color: var(--muted); }
+.products-count strong { color: var(--ink); font-weight: 500; }
+.sort-select {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 8px 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+  outline: none;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.product-card {
+  cursor: pointer;
+  group: true;
+}
+.product-img-wrap {
+  position: relative;
+  background: var(--warm);
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.product-img-wrap .emoji {
+  font-size: 72px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.4s ease;
+}
+.product-card:hover .emoji { transform: translate(-50%, -54%) scale(1.08); }
+.product-badge-wrap {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.badge {
+  font-size: 10px;
+  padding: 3px 8px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+.badge.new { background: var(--sage); color: white; }
+.badge.sale { background: var(--rust); color: white; }
+.badge.premium { background: var(--gold); color: white; }
+.badge.stare { background: var(--ink); color: white; }
+
+.product-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: 0;
+  transform: translateY(100%);
+  transition: transform 0.25s ease;
+}
+.product-card:hover .product-actions { transform: translateY(0); }
+
+.btn-cart {
+  flex: 1;
+  background: var(--ink);
+  color: white;
+  border: none;
+  padding: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-cart:hover { background: var(--rust); }
+.btn-wish {
+  background: white;
+  border: none;
+  padding: 12px 14px;
+  cursor: pointer;
+  font-size: 16px;
+  border-left: 1px solid var(--border);
+  transition: background 0.2s;
+}
+.btn-wish:hover { background: var(--warm); }
+
+.product-brand {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.product-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.product-price {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.product-price-orig {
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+.product-size {
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--warm);
+  padding: 3px 8px;
+}
+
+/* CART DRAWER */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.cart-overlay.open { opacity: 1; pointer-events: all; }
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 380px;
+  background: var(--white);
+  z-index: 201;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  flex-direction: column;
+}
+.cart-drawer.open { transform: translateX(0); }
+.cart-header {
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart-header h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+.cart-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 4px;
+}
+.cart-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.cart-empty .icon { font-size: 48px; opacity: 0.3; }
+.cart-item {
+  display: flex;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  animation: slideIn 0.3s ease;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.cart-item-img {
+  width: 70px;
+  height: 90px;
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  flex-shrink: 0;
+}
+.cart-item-info { flex: 1; }
+.cart-item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.cart-item-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.cart-item-price { font-size: 14px; font-weight: 500; color: var(--rust); }
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  align-self: flex-start;
+}
+.cart-footer {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  background: var(--warm);
+}
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.cart-total-label { font-size: 13px; color: var(--muted); }
+.cart-total-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.btn-checkout {
+  width: 100%;
+  background: var(--ink);
+  color: white;
+  border: none;
+  padding: 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+}
+.btn-checkout:hover { background: var(--rust); }
+.checkout-note {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* FOR SALE MODAL */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+.modal {
+  background: white;
+  max-width: 480px;
+  width: 90%;
+  padding: 48px;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s;
+}
+.modal-overlay.open .modal { transform: scale(1); }
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.modal-tag {
+  background: var(--rust);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.modal h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.modal-domain {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.modal-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.modal-price-note { font-size: 12px; color: var(--muted); margin-bottom: 28px; }
+.modal-form { display: flex; flex-direction: column; gap: 12px; }
+.modal-input {
+  background: var(--warm);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.modal-input:focus { border-color: var(--rust); }
+.modal-input::placeholder { color: var(--muted); }
+.modal-submit {
+  background: var(--ink);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.modal-submit:hover { background: var(--rust); }
+
+/* FOOTER */
+.site-footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  padding: 48px 40px 32px;
+  margin-top: 80px;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  color: white;
+  margin-bottom: 12px;
+}
+.footer-logo span { color: var(--rust-light); font-style: italic; }
+.footer-desc { font-size: 13px; line-height: 1.7; margin-bottom: 20px; max-width: 280px; }
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-col a:hover { color: white; }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.footer-sale-note {
+  color: var(--rust-light);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: var(--ink);
+  color: white;
+  padding: 12px 24px;
+  font-size: 13px;
+  z-index: 400;
+  transition: transform 0.3s ease;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.product-card {
+  animation: fadeUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .main { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { padding: 0 20px; }
+  nav { display: none; }
+}
+@media (max-width: 600px) {
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hero-strip { padding: 50px 20px; }
+  .main { padding: 24px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FOR SALE BANNER -->
+<div class="sale-banner">
+  <span class="sale-tag">DE VÂNZARE</span>
+  <span>Acest domeniu este disponibil · <strong>500 EUR</strong> · <a onclick="openModal()">Contactează vânzătorul →</a></span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">Haine<span>SecondHand</span></a>
+    <nav>
+      <a class="active" onclick="filterCat('toate')">Toate</a>
+      <a onclick="filterCat('femei')">Femei</a>
+      <a onclick="filterCat('barbati')">Bărbați</a>
+      <a onclick="filterCat('copii')">Copii</a>
+      <a onclick="filterCat('accesorii')">Accesorii</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Caută haine..." id="searchInput" oninput="filterProducts()">
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Coș
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero-strip">
+  <h1>Modă <em>sustenabilă</em><br>la prețuri mici</h1>
+  <p>Haine de calitate · Second hand · România</p>
+  <div class="hero-badges">
+    <div class="hero-badge">✦ Livrare 24–48h</div>
+    <div class="hero-badge">✦ Retururi gratuite</div>
+    <div class="hero-badge">✦ Peste 500 de produse</div>
+    <div class="hero-badge">✦ Plată securizată</div>
+  </div>
+</div>
+
+<!-- CATEGORY TABS -->
+<div class="categories">
+  <button class="cat-tab active" onclick="filterCat('toate', this)">Toate produsele</button>
+  <button class="cat-tab" onclick="filterCat('femei', this)">Femei</button>
+  <button class="cat-tab" onclick="filterCat('barbati', this)">Bărbați</button>
+  <button class="cat-tab" onclick="filterCat('copii', this)">Copii</button>
+  <button class="cat-tab" onclick="filterCat('accesorii', this)">Accesorii</button>
+  <button class="cat-tab" onclick="filterCat('reduceri', this)">🔥 Reduceri</button>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="filter-section">
+      <div class="filter-title">Stare produs</div>
+      <div class="filter-options">
+        <label class="filter-opt"><input type="checkbox" checked onchange="filterProducts()"> <span>Ca nou</span> <span class="count">(48)</span></label>
+        <label class="filter-opt"><input type="checkbox" checked onchange="filterProducts()"> <span>Stare bună</span> <span class="count">(124)</span></label>
+        <label class="filter-opt"><input type="checkbox" checked onchange="filterProducts()"> <span>Uzură ușoară</span> <span class="count">(67)</span></label>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Preț (lei)</div>
+      <div class="price-range">
+        <input type="range" min="0" max="500" value="500" style="width:100%;accent-color:var(--rust)" oninput="document.getElementById('maxPrice').value=this.value;filterProducts()">
+        <div class="price-inputs">
+          <input class="price-input" type="number" value="0" placeholder="Min" id="minPrice">
+          <span class="price-sep">–</span>
+          <input class="price-input" type="number" value="500" placeholder="Max" id="maxPrice">
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Mărimi</div>
+      <div class="size-grid">
+        <button class="size-btn" onclick="toggleSize(this)">XS</button>
+        <button class="size-btn active" onclick="toggleSize(this)">S</button>
+        <button class="size-btn active" onclick="toggleSize(this)">M</button>
+        <button class="size-btn" onclick="toggleSize(this)">L</button>
+        <button class="size-btn" onclick="toggleSize(this)">XL</button>
+        <button class="size-btn" onclick="toggleSize(this)">XXL</button>
+        <button class="size-btn" onclick="toggleSize(this)">36</button>
+        <button class="size-btn" onclick="toggleSize(this)">38</button>
+        <button class="size-btn" onclick="toggleSize(this)">40</button>
+        <button class="size-btn" onclick="toggleSize(this)">42</button>
+        <button class="size-btn" onclick="toggleSize(this)">44</button>
+        <button class="size-btn" onclick="toggleSize(this)">46</button>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Culori</div>
+      <div class="color-grid">
+        <div class="color-dot active" style="background:#1A1410" title="Negru" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#FFFFFF;border:1px solid #ddd" title="Alb" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#B5451B" title="Roșu" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#5C6B52" title="Verde" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#3B5A8A" title="Albastru" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#A07B30" title="Bej" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#C4A0C0" title="Mov" onclick="toggleColor(this)"></div>
+        <div class="color-dot" style="background:#E8C4A0" title="Roz" onclick="toggleColor(this)"></div>
+      </div>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Brand</div>
+      <div class="filter-options">
+        <label class="filter-opt"><input type="checkbox"> <span>Zara</span> <span class="count">(23)</span></label>
+        <label class="filter-opt"><input type="checkbox"> <span>H&M</span> <span class="count">(41)</span></label>
+        <label class="filter-opt"><input type="checkbox"> <span>Mango</span> <span class="count">(18)</span></label>
+        <label class="filter-opt"><input type="checkbox"> <span>Reserved</span> <span class="count">(29)</span></label>
+        <label class="filter-opt"><input type="checkbox"> <span>Pull&Bear</span> <span class="count">(15)</span></label>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PRODUCTS -->
+  <div>
+    <div class="products-header">
+      <div class="products-count" id="productsCount"><strong>24</strong> produse găsite</div>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="new">Cele mai noi</option>
+        <option value="price-asc">Preț crescător</option>
+        <option value="price-desc">Preț descrescător</option>
+        <option value="name">Alfabetic</option>
+      </select>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Haine<span>SecondHand</span></div>
+      <p class="footer-desc">Modă sustenabilă și accesibilă pentru toți românii. Haine second hand de calitate, selectate cu grijă.</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.25);">Demo site · Domeniu de vânzare</p>
+    </div>
+    <div class="footer-col">
+      <h4>Magazin</h4>
+      <a>Femei</a>
+      <a>Bărbați</a>
+      <a>Copii</a>
+      <a>Accesorii</a>
+      <a>Reduceri</a>
+    </div>
+    <div class="footer-col">
+      <h4>Informații</h4>
+      <a>Livrare & retururi</a>
+      <a>Despre noi</a>
+      <a>Contact</a>
+      <a onclick="openModal()" class="footer-sale-note">🔑 Cumpără domeniul</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 hainescecondhand.ro · Site demonstrativ</span>
+    <span><span class="footer-sale-note" onclick="openModal()">Domeniu disponibil pentru 500 EUR →</span></span>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <h3>Coșul tău</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="icon">🛍️</div>
+      <div>Coșul tău este gol</div>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotal">0 lei</span>
+    </div>
+    <button class="btn-checkout" onclick="showToast('Aceasta este o demonstrație. Domeniul este de vânzare!')">Finalizează comanda</button>
+    <p class="checkout-note">🔒 Plată securizată · Livrare 24–48h<br><span style="color:var(--rust);cursor:pointer" onclick="openModal()">Cumpără domeniul pentru a activa magazinul →</span></p>
+  </div>
+</div>
+
+<!-- FOR SALE MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-tag">DOMENIU DE VÂNZARE</div>
+    <h2>Cumpără acest<br>magazin online</h2>
+    <div class="modal-domain">hainescecondhand.ro</div>
+    <div class="modal-price">500 EUR</div>
+    <p class="modal-price-note">Transfer rapid · Escrow disponibil · Negociabil</p>
+    <div class="modal-form">
+      <input class="modal-input" type="text" placeholder="Numele tău">
+      <input class="modal-input" type="email" placeholder="Email-ul tău">
+      <input class="modal-input" type="text" placeholder="Mesaj (opțional)">
+      <button class="modal-submit" onclick="submitContact(this)">Trimite cererea →</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  { id:1, name:'Rochie de vară', brand:'Zara', price:45, origPrice:180, cat:'femei', badge:'sale', stare:'Ca nou', size:'S/M', emoji:'👗', delay:0 },
+  { id:2, name:'Geacă de piele', brand:'Mango', price:120, origPrice:450, cat:'femei', badge:'premium', stare:'Stare bună', size:'M', emoji:'🧥', delay:1 },
+  { id:3, name:'Pantofi eleganți', brand:'Zara', price:65, origPrice:220, cat:'femei', badge:'new', stare:'Ca nou', size:'38', emoji:'👠', delay:2 },
+  { id:4, name:'Tricou vintage', brand:'H&M', price:25, origPrice:80, cat:'barbati', badge:'', stare:'Stare bună', size:'L', emoji:'👕', delay:3 },
+  { id:5, name:'Geantă de damă', brand:'Reserved', price:80, origPrice:300, cat:'accesorii', badge:'premium', stare:'Ca nou', size:'Universal', emoji:'👜', delay:4 },
+  { id:6, name:'Fular & căciulă set', brand:'H&M', price:35, origPrice:100, cat:'accesorii', badge:'sale', stare:'Ca nou', size:'Universal', emoji:'🧣', delay:5 },
+  { id:7, name:'Blugi skinny', brand:'Pull&Bear', price:55, origPrice:200, cat:'femei', badge:'', stare:'Stare bună', size:'38/S', emoji:'👖', delay:6 },
+  { id:8, name:'Cămașă formală', brand:'Reserved', price:40, origPrice:150, cat:'barbati', badge:'new', stare:'Ca nou', size:'M/L', emoji:'👔', delay:7 },
+  { id:9, name:'Adidași sport', brand:'H&M', price:70, origPrice:250, cat:'barbati', badge:'', stare:'Stare bună', size:'42', emoji:'👟', delay:8 },
+  { id:10, name:'Rochie de seară', brand:'Mango', price:95, origPrice:380, cat:'femei', badge:'premium', stare:'Ca nou', size:'S', emoji:'👒', delay:9 },
+  { id:11, name:'Jachetă sport', brand:'Zara', price:60, origPrice:230, cat:'barbati', badge:'sale', stare:'Stare bună', size:'XL', emoji:'🥋', delay:10 },
+  { id:12, name:'Rochie copii', brand:'H&M', price:20, origPrice:70, cat:'copii', badge:'new', stare:'Ca nou', size:'5-6 ani', emoji:'🎀', delay:11 },
+  { id:13, name:'Pantaloni eleganți', brand:'Mango', price:50, origPrice:190, cat:'femei', badge:'', stare:'Stare bună', size:'M/40', emoji:'👗', delay:12 },
+  { id:14, name:'Pălărie de vară', brand:'Zara', price:28, origPrice:90, cat:'accesorii', badge:'', stare:'Ca nou', size:'Universal', emoji:'🎩', delay:13 },
+  { id:15, name:'Tricou copii', brand:'Reserved', price:15, origPrice:50, cat:'copii', badge:'sale', stare:'Stare bună', size:'8-9 ani', emoji:'🎽', delay:14 },
+  { id:16, name:'Cizme elegante', brand:'Mango', price:110, origPrice:420, cat:'femei', badge:'premium', stare:'Stare bună', size:'37', emoji:'👢', delay:15 },
+  { id:17, name:'Palton de toamnă', brand:'Zara', price:140, origPrice:550, cat:'femei', badge:'premium', stare:'Ca nou', size:'M', emoji:'🧣', delay:0 },
+  { id:18, name:'Rucsac sport', brand:'H&M', price:45, origPrice:160, cat:'accesorii', badge:'new', stare:'Ca nou', size:'Universal', emoji:'🎒', delay:1 },
+  { id:19, name:'Pantaloni sport', brand:'Pull&Bear', price:35, origPrice:130, cat:'barbati', badge:'', stare:'Stare bună', size:'L', emoji:'🩲', delay:2 },
+  { id:20, name:'Rochiță bebeluș', brand:'H&M', price:18, origPrice:60, cat:'copii', badge:'new', stare:'Ca nou', size:'6-12 luni', emoji:'🍼', delay:3 },
+  { id:21, name:'Bluză elegantă', brand:'Reserved', price:38, origPrice:140, cat:'femei', badge:'', stare:'Stare bună', size:'S/M', emoji:'👚', delay:4 },
+  { id:22, name:'Portofel piele', brand:'Mango', price:55, origPrice:200, cat:'accesorii', badge:'premium', stare:'Ca nou', size:'Universal', emoji:'👛', delay:5 },
+  { id:23, name:'Geacă de iarnă', brand:'Zara', price:130, origPrice:500, cat:'barbati', badge:'sale', stare:'Stare bună', size:'XL', emoji:'🧥', delay:6 },
+  { id:24, name:'Pantofi sport copii', brand:'H&M', price:30, origPrice:110, cat:'copii', badge:'', stare:'Stare bună', size:'32', emoji:'👟', delay:7 },
+];
+
+let cart = [];
+let currentCat = 'toate';
+let currentSearch = '';
+
+function renderProducts(items) {
+  const grid = document.getElementById('productsGrid');
+  document.getElementById('productsCount').innerHTML = `<strong>${items.length}</strong> produse găsite`;
+  grid.innerHTML = items.map((p, i) => `
+    <div class="product-card" style="animation-delay:${i * 0.06}s">
+      <div class="product-img-wrap">
+        <div class="emoji">${p.emoji}</div>
+        <div class="product-badge-wrap">
+          ${p.badge === 'new' ? '<span class="badge new">Nou</span>' : ''}
+          ${p.badge === 'sale' ? '<span class="badge sale">Reducere</span>' : ''}
+          ${p.badge === 'premium' ? '<span class="badge premium">Premium</span>' : ''}
+          <span class="badge stare">${p.stare}</span>
+        </div>
+        <div class="product-actions">
+          <button class="btn-cart" onclick="addToCart(${p.id}, event)">Adaugă în coș</button>
+          <button class="btn-wish" onclick="event.stopPropagation();showToast('❤️ Adăugat la favorite!')">♡</button>
+        </div>
+      </div>
+      <div class="product-brand">${p.brand}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-meta">
+        <div>
+          <span class="product-price">${p.price} lei</span>
+          <span class="product-price-orig">${p.origPrice} lei</span>
+        </div>
+        <span class="product-size">${p.size}</span>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCat(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(t => t.classList.remove('active'));
+  if (el) el.classList.add('active');
+  filterProducts();
+}
+
+function filterProducts() {
+  currentSearch = document.getElementById('searchInput').value.toLowerCase();
+  let filtered = products.filter(p => {
+    if (currentCat === 'reduceri') return p.badge === 'sale';
+    if (currentCat !== 'toate' && p.cat !== currentCat) return false;
+    if (currentSearch && !p.name.toLowerCase().includes(currentSearch) && !p.brand.toLowerCase().includes(currentSearch)) return false;
+    return true;
+  });
+  renderProducts(filtered);
+}
+
+function sortProducts(val) {
+  let sorted = [...products];
+  if (val === 'price-asc') sorted.sort((a,b) => a.price - b.price);
+  if (val === 'price-desc') sorted.sort((a,b) => b.price - a.price);
+  if (val === 'name') sorted.sort((a,b) => a.name.localeCompare(b.name));
+  renderProducts(sorted);
+}
+
+function toggleSize(btn) { btn.classList.toggle('active'); }
+function toggleColor(dot) { dot.classList.toggle('active'); }
+
+function addToCart(id, e) {
+  e.stopPropagation();
+  const p = products.find(x => x.id === id);
+  cart.push(p);
+  updateCart();
+  showToast(`✓ ${p.name} adăugat în coș`);
+}
+
+function updateCart() {
+  const count = cart.length;
+  const el = document.getElementById('cartCount');
+  el.textContent = count;
+  el.classList.toggle('visible', count > 0);
+  const total = cart.reduce((s, p) => s + p.price, 0);
+  document.getElementById('cartTotal').textContent = total + ' lei';
+  const footer = document.getElementById('cartFooter');
+  const items = document.getElementById('cartItems');
+  if (count === 0) {
+    footer.style.display = 'none';
+    items.innerHTML = '<div class="cart-empty"><div class="icon">🛍️</div><div>Coșul tău este gol</div></div>';
+  } else {
+    footer.style.display = 'block';
+    items.innerHTML = cart.map((p, i) => `
+      <div class="cart-item">
+        <div class="cart-item-img">${p.emoji}</div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${p.name}</div>
+          <div class="cart-item-meta">${p.brand} · ${p.size} · ${p.stare}</div>
+          <div class="cart-item-price">${p.price} lei</div>
+        </div>
+        <button class="cart-item-remove" onclick="removeFromCart(${i})">✕</button>
+      </div>
+    `).join('');
+  }
+}
+
+function removeFromCart(i) { cart.splice(i, 1); updateCart(); }
+
+function toggleCart() {
+  document.getElementById('cartDrawer').classList.toggle('open');
+  document.getElementById('cartOverlay').classList.toggle('open');
+}
+
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function submitContact(btn) {
+  btn.textContent = 'Mesaj trimis! ✓';
+  btn.style.background = '#3B6D11';
+  btn.disabled = true;
+  setTimeout(closeModal, 2000);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+renderProducts(products);
+</script>
+</body>
+</html>
